@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIAUSSE — Votre Avis Compte</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background animated shapes -->
+    <div class="bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">📱</span>
+                <span class="logo-text">FIAUSSE</span>
+            </div>
+            <p class="header-tagline">Aidez-nous à construire l'application que vous méritez</p>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Votre avis <span class="gradient-text">compte</span></h1>
+                <p class="hero-subtitle">
+                    Prenez 3 minutes pour nous dire ce que vous pensez de FIAUSSE. 
+                    Chaque retour nous aide à améliorer votre expérience.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-icon">💬</span>
+                        <span class="stat-text">Vos retours</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-icon">🚀</span>
+                        <span class="stat-text">Nos améliorations</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-icon">❤️</span>
+                        <span class="stat-text">Votre satisfaction</span>
+                    </div>
+                </div>
+                <a href="#feedback-form" class="cta-button">
+                    Donner mon avis
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M7 17l9.2-9.2M17 17V7H7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section id="feedback-form" class="form-section">
+        <div class="container">
+            <div class="form-wrapper">
+                <div class="form-header">
+                    <h2>📋 Formulaire de Feedback</h2>
+                    <p>Tous les champs marqués d'un <span class="required">*</span> sont obligatoires</p>
+                </div>
+
+                <form id="surveyForm" novalidate>
+                    <!-- Progress Bar -->
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <span class="progress-text" id="progressText">Étape 1 / 4</span>
+                    </div>
+
+                    <!-- Step 1: Identity -->
+                    <div class="form-step active" data-step="1">
+                        <div class="step-header">
+                            <span class="step-number">1</span>
+                            <div>
+                                <h3>Vos informations</h3>
+                                <p>Dites-nous qui vous êtes</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="userName">Nom complet <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                <input type="text" id="userName" name="userName" placeholder="Votre nom" required>
+                            </div>
+                            <span class="error-msg" id="userNameError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="userEmail">Adresse email <span class="required">*</span></label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+                                <input type="email" id="userEmail" name="userEmail" placeholder="votre@email.com" required>
+                            </div>
+                            <span class="error-msg" id="userEmailError"></span>
+                        </div>
+
+                        <div class="form-navigation">
+                            <div></div>
+                            <button type="button" class="btn btn-next" onclick="nextStep(1)">
+                                Suivant
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Satisfaction -->
+                    <div class="form-step" data-step="2">
+                        <div class="step-header">
+                            <span class="step-number">2</span>
+                            <div>
+                                <h3>Votre satisfaction</h3>
+                                <p>Comment évaluez-vous FIAUSSE ?</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Satisfaction globale <span class="required">*</span></label>
+                            <div class="star-rating" id="starRating">
+                                <input type="hidden" name="satisfaction" id="satisfaction" required>
+                                <button type="button" class="star" data-value="1" aria-label="1 étoile">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                </button>
+                                <button type="button" class="star" data-value="2" aria-label="2 étoiles">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                </button>
+                                <button type="button" class="star" data-value="3" aria-label="3 étoiles">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                </button>
+                                <button type="button" class="star" data-value="4" aria-label="4 étoiles">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                </button>
+                                <button type="button" class="star" data-value="5" aria-label="5 étoiles">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                </button>
+                                <span class="star-label" id="starLabel">Sélectionnez une note</span>
+                            </div>
+                            <span class="error-msg" id="satisfactionError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Recommanderiez-vous FIAUSSE à un ami ? <span class="required">*</span></label>
+                            <p class="field-hint">Score NPS : 0 = Pas du tout probable → 10 = Très probable</p>
+                            <div class="nps-scale" id="npsScale">
+                                <input type="hidden" name="nps" id="nps" required>
+                                <div class="nps-buttons">
+                                    <button type="button" class="nps-btn detractor" data-value="0">0</button>
+                                    <button type="button" class="nps-btn detractor" data-value="1">1</button>
+                                    <button type="button" class="nps-btn detractor" data-value="2">2</button>
+                                    <button type="button" class="nps-btn detractor" data-value="3">3</button>
+                                    <button type="button" class="nps-btn detractor" data-value="4">4</button>
+                                    <button type="button" class="nps-btn detractor" data-value="5">5</button>
+                                    <button type="button" class="nps-btn detractor" data-value="6">6</button>
+                                    <button type="button" class="nps-btn passive" data-value="7">7</button>
+                                    <button type="button" class="nps-btn passive" data-value="8">8</button>
+                                    <button type="button" class="nps-btn promoter" data-value="9">9</button>
+                                    <button type="button" class="nps-btn promoter" data-value="10">10</button>
+                                </div>
+                                <div class="nps-labels">
+                                    <span>Pas du tout probable</span>
+                                    <span>Très probable</span>
+                                </div>
+                            </div>
+                            <span class="error-msg" id="npsError"></span>
+                        </div>
+
+                        <div class="form-navigation">
+                            <button type="button" class="btn btn-prev" onclick="prevStep(2)">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                                Précédent
+                            </button>
+                            <button type="button" class="btn btn-next" onclick="nextStep(2)">
+                                Suivant
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Detailed Feedback -->
+                    <div class="form-step" data-step="3">
+                        <div class="step-header">
+                            <span class="step-number">3</span>
+                            <div>
+                                <h3>Vos retours détaillés</h3>
+                                <p>Aidez-nous à comprendre votre expérience</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="appreciation">Qu'appréciez-vous le plus dans FIAUSSE ? <span class="required">*</span></label>
+                            <div class="textarea-wrapper">
+                                <textarea id="appreciation" name="appreciation" rows="3" placeholder="Ex: J'adore la facilité de navigation, les prix compétitifs, le service client réactif..." required></textarea>
+                                <span class="char-count"><span id="appreciationCount">0</span> / 500</span>
+                            </div>
+                            <span class="error-msg" id="appreciationError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="improvements">Qu'aimeriez-vous voir amélioré ? <span class="required">*</span></label>
+                            <div class="textarea-wrapper">
+                                <textarea id="improvements" name="improvements" rows="3" placeholder="Ex: La vitesse de chargement, plus de filtres de recherche, un meilleur design..." required></textarea>
+                                <span class="char-count"><span id="improvementsCount">0</span> / 500</span>
+                            </div>
+                            <span class="error-msg" id="improvementsError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="problems">Avez-vous rencontré des problèmes ou bugs ?</label>
+                            <div class="textarea-wrapper">
+                                <textarea id="problems" name="problems" rows="3" placeholder="Ex: L'application plante quand je..., le paiement ne fonctionne pas avec..."></textarea>
+                                <span class="char-count"><span id="problemsCount">0</span> / 500</span>
+                            </div>
+                        </div>
+
+                        <div class="form-navigation">
+                            <button type="button" class="btn btn-prev" onclick="prevStep(3)">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                                Précédent
+                            </button>
+                            <button type="button" class="btn btn-next" onclick="nextStep(3)">
+                                Suivant
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Products & Final -->
+                    <div class="form-step" data-step="4">
+                        <div class="step-header">
+                            <span class="step-number">4</span>
+                            <div>
+                                <h3>Produits & Suggestions</h3>
+                                <p>Dernière étape !</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="missingProducts">Avez-vous cherché des produits que vous n'avez pas trouvés ?</label>
+                            <div class="textarea-wrapper">
+                                <textarea id="missingProducts" name="missingProducts" rows="3" placeholder="Listez les produits que vous cherchiez mais qui n'étaient pas disponibles sur FIAUSSE..."></textarea>
+                                <span class="char-count"><span id="missingProductsCount">0</span> / 500</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="suggestions">Commentaires libres / Suggestions</label>
+                            <div class="textarea-wrapper">
+                                <textarea id="suggestions" name="suggestions" rows="4" placeholder="Partagez librement toute idée, suggestion ou commentaire sur FIAUSSE..."></textarea>
+                                <span class="char-count"><span id="suggestionsCount">0</span> / 1000</span>
+                            </div>
+                        </div>
+
+                        <div class="form-navigation">
+                            <button type="button" class="btn btn-prev" onclick="prevStep(4)">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                                Précédent
+                            </button>
+                            <button type="submit" class="btn btn-submit" id="submitBtn">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                                Envoyer mon avis
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Success Message -->
+                <div id="successMessage" class="success-message hidden">
+                    <div class="success-icon">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke-linecap="round"/>
+                            <polyline points="22 4 12 14.01 9 11.01" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h2>Merci pour votre retour ! 🎉</h2>
+                    <p>Votre avis est précieux et nous aidera à améliorer FIAUSSE pour vous offrir la meilleure expérience possible.</p>
+                    <button class="btn btn-next" onclick="resetForm()">Soumettre un autre avis</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 FIAUSSE — Tous droits réservés</p>
+            <p class="footer-note">Vos données sont collectées uniquement pour améliorer nos services et ne seront jamais partagées avec des tiers.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
